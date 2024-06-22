@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deep Linking Redirect</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function (event) {
+        var baseUri = "exp://wg-qka.notbrent.app.exp.direct";
+        var qs = decodeURIComponent(document.location.search);
+        console.log(qs, "logged");
+        if (qs) {
+          var linkingUriParam = qs.split("?linkingUri=")[1];
+          if (linkingUriParam) {
+            baseUri = linkingUriParam;
+            window.location.href = baseUri;
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Redirecting to the Expo app...</h1>
+  </body>
+</html>
